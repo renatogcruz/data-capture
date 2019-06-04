@@ -59,3 +59,9 @@ Images that the algorithm can preserve
 When the galapagos evolutionary process ends, just click Toggle again to make it 'False' and go to the directory where everything is. Now you have all the data needed for further deepening the analysis of your work.
 
 ![](images/07.gif)
+
+## References
+
+1. Code made available by Anders Holden Deleuran in this [discussion](https://discourse.mcneel.com/t/a-way-to-screencapture-and-send-to-print-with-one-button/76015/5).
+
+2. Example of optimization available in [karamba](https://www.karamba3d.com/examples/simple/optimization-of-truss-diagonals/).
