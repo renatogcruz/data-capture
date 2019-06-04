@@ -52,4 +52,10 @@ Finally, before starting the optimization with Galapagos, we must click the Togg
 
 ![](images/05.gif)
 
+Images that the algorithm can preserve
+
 ![](images/06.gif)
+
+When the galapagos evolutionary process ends, just click Toggle again to make it 'False' and go to the directory where everything is. Now you have all the data needed for further deepening the analysis of your work.
+
+![](images/07.gif)
