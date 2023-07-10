@@ -1,4 +1,4 @@
-# data-capture
+# Data Capture
 
 Algorithm for capturing data generated during the optimization process using Grasshopper + Galapagos.
 
