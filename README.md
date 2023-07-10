@@ -1,38 +1,42 @@
 # data-capture
 
-Algorithm to capture data produced during the optimization process using Grasshopper + Galapagos
+Algorithm for capturing data generated during the optimization process using Grasshopper + Galapagos.
 
 ---
 
 ## About
 
-The term "Evolutionary Computing" is widely known at this time and if you are an architect or civil engineer you surely already know the Galapagos.
+The term "Evolutionary Computing" is widely recognized at present, and if you are an architect or civil engineer, you are likely familiar with Galapagos.
 
-For those who do not yet know, Galapagos is a native component of Grasshopper and provides a generic platform for the application of Evolutionary Algorithms to be used in a wide variety of problems by non-programmers.
+For those who are not yet familiar, Galapagos is a native component of Grasshopper that offers a versatile platform for applying Evolutionary Algorithms to a wide range of problems, even for non-programmers.
 
-Although very powerful, the images produced during the Galapagos optimization process are lost and the generated data is stored in a way that makes its analysis difficult and laborious. Thinking about this, this algorithm was developed so that the most important information of this process is preserved.
+Despite being highly powerful, the images generated during the Galapagos optimization process are often lost, and the collected data is stored in a manner that makes its analysis challenging and time-consuming. To address this issue, an algorithm has been developed to preserve the most crucial information from this process.
 
 ## Operation
 
-This feature works by capturing Rhino viewports as PNG image files. It saves these images to a folder with the same name as the GH file and in the same directory where it is. It also captures the data used as 'genomes' and 'fitness' during the Galapagos optimization process in a CSV file, assigning it name and location in the same way as described for the images.
+This feature operates by capturing Rhino viewports as PNG image files. It saves these images to a folder with the identical name as the GH file, located in the same directory. Additionally, it captures the data utilized as 'genomes' and 'fitness' throughout the Galapagos optimization process, storing it in a CSV file that follows the same naming and location convention as described for the images.
 
 Inputs:
 
-1. Toggle: Activates the component using a boolean;
+1. Toggle: Enables or disables the component using a boolean value.
 
-2. goalValue: receives the goal value;
+2. goalValue: Receives the desired goal value.
 
-3. width: width of the screen to be captured;
+3. width: Specifies the width of the screen to be captured.
 
-4. height: height of the screen to be captured;
+4. height: Specifies the height of the screen to be captured.
 
-5. data: list of data.
+5. data: A list containing the data.
 
 ---
 
 ## Example
 
-As a demonstration, let's look at the scraper in action on an optimization problem. For this, we use a model provided by [Karamba](https://www.karamba3d.com/examples/simple/optimization-of-truss-diagonals/).
+Let's demonstrate the scraper in action on an optimization problem using a model provided by [Karamba](https://www.karamba3d.com/examples/simple/optimization-of-truss-diagonals/).
+
+In this example, Galapagos is configured to adjust the position of the diagonals in a trellis structure to minimize deflection.
+
+Instead of using line geometry to generate the beams, we utilize the indices of the points to create the beams and brackets. .
 
 In this example, Galapagos is configured to play with the position of the diagonals of a trellis to achieve minimum deflection.
 
@@ -40,23 +44,23 @@ Instead of using the line geometry to generate the beams, here the indices of th
 
 ![](images/01.gif)
 
-In the figure below, we can see the input parameters (indices) and the target value of being minimized (deflection).
+In the figure below, you can see the input parameters (indices) and the target value to minimize (deflection).
 
 ![](images/02.gif)
 
-Where indecisions are the genomes of optimization and deflection is the fitness value of the process.
+The indices represent the genomes for optimization, and deflection is the fitness value for the process.
 
 ![](images/03.gif)
 
-To capture the data produced during the Galapagos generative process, we must connect the 'Fitness' value (which in this case is the deflection value) to the 'goalValue' input of our Scraper. This will cause the images to receive their corresponding 'Fitness' value as their name. The data (sliding values) used in Galapagos as 'Genomes' are the other values that intervene in this type of operation. Then, we must connect them through a 'Merge' node to the 'data' input of our capture algorithm.
+To capture the data generated during the Galapagos optimization process, we need to connect the 'Fitness' value (in this case, the deflection value) to the 'goalValue' input of our Scraper component. This ensures that the images receive their corresponding 'Fitness' value as their name. The data, represented by sliding values, which are used as 'Genomes' in Galapagos, should be connected via a 'Merge' node to the 'data' input of our data capturing algorithm.
 
 ![](images/04.gif)
 
-Before starting the optimization with Galapagos, we must inform the algorithm that it will need to work. We do this by clicking on the Alternate (to True) condition. This will make our algorithm work at any change of values (whether of sliding values (Genomes) or of Fitness value.
+Before starting the optimization with Galapagos, we need to indicate to the algorithm that it should start functioning. We can do this by setting the Alternate condition to True. This will activate our algorithm whenever there is a change in values, whether it's the sliding values (Genomes) or the Fitness value.
 
 ![](images/05.gif)
 
-Below is a GIF file constructed with part of the images captured by the algorithm, type of information (which it is possible to follow in real time during the optimization process) that was lost during the procedure.
+Below is a GIF file created using a portion of the images captured by the algorithm. It shows the type of information (which can be monitored in real-time during the optimization process) that would otherwise be lost.
 
 ![](images/06.gif)
 
@@ -64,11 +68,11 @@ Below is a GIF file constructed with part of the images captured by the algorith
 
 ## Data captured
 
-When the Galapagos evolutionary process is over, we need to tell the algorithm to stop working. To do so, simply click Switch again, this time to make it 'False'.
+Once the Galapagos evolutionary process is complete, we need to instruct the algorithm to stop functioning. To do this, simply click the Switch again, this time setting it to 'False'.
 
-In the directory where everything is saved, you will find a CSV file, with all data for each iteration and a folder containing their respective images.
+In the directory where everything is saved, you will find a CSV file containing all the data for each iteration, as well as a folder containing the respective images.
 
-Now you have all the data you need to further deepen the analysis of your work.
+Now you have all the data necessary to delve deeper into the analysis of your work.
 
 ![](images/07.gif)
 
